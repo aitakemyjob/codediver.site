@@ -86,6 +86,22 @@ function initDownloadLabel() {
   if (btn && os) btn.textContent = `Download for ${os}`;
 }
 
+/** Toggles the collapsed navigation on small screens. */
+function initMenu() {
+  const nav = document.querySelector('.nav');
+  const btn = nav.querySelector('.menu-toggle');
+  const set = (open) => {
+    nav.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  };
+  btn.addEventListener('click', () => set(!nav.classList.contains('open')));
+  nav.querySelectorAll('.nav-links a').forEach((a) => a.addEventListener('click', () => set(false)));
+  document.addEventListener('keydown', (e) => e.key === 'Escape' && set(false));
+  window.matchMedia('(min-width: 1024px)').addEventListener('change', (e) => e.matches && set(false));
+}
+
+initMenu();
 initTabs();
 initCopyButtons();
 initLightbox();
