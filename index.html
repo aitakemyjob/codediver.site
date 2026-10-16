@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CodeDiver — stay part of your codebase while AI writes it</title>
+  <meta name="description" content="CodeDiver is an open-source desktop app your AI coding agent can drive over MCP. It walks you through code, explains functions step by step, draws how code flows, and puts every proposed change in front of you to approve." />
+  <meta name="theme-color" content="#0b1120" />
+  <meta property="og:title" content="CodeDiver — stay part of your codebase while AI writes it" />
+  <meta property="og:description" content="Your coding agent, with a screen. Guided walkthroughs, function logic, call graphs, heatmaps and reviewable proposals — over MCP." />
+  <meta property="og:image" content="assets/screens/walkthrough.jpg" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav" id="top">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top" aria-label="CodeDiver home">
+        <img src="assets/logo.png" alt="" width="34" height="34" />
+        <span>CodeDiver</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#how">How it works</a>
+        <a href="#mcp">MCP</a>
+        <a href="#walkthroughs">Walkthroughs</a>
+        <a href="#review">Review</a>
+        <a href="#features">Features</a>
+        <a href="#install">Install</a>
+      </nav>
+      <a class="btn btn-ghost nav-gh" href="https://github.com/aitakemyjob/codediver">
+        <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============================================================ HERO -->
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Open source · macOS · Windows · Linux</p>
+          <h1>Stay part of your codebase <span class="accent">while AI writes it.</span></h1>
+          <p class="lede">
+            CodeDiver is a desktop app your coding agent can drive. It walks you through the code,
+            explains functions step by step, draws how execution flows, and puts every change it
+            wants to make in front of you to approve. <strong>The agent keeps the speed. You keep the understanding.</strong>
+          </p>
+          <div class="cta">
+            <a class="btn btn-primary" id="download-btn" href="https://github.com/aitakemyjob/codediver/releases/latest">Download CodeDiver</a>
+            <a class="btn" href="#mcp">Connect your agent</a>
+          </div>
+          <p class="hero-note">Works with Claude Code, Cursor, VS Code, Claude Desktop, Codex — anything that speaks MCP.</p>
+        </div>
+        <figure class="hero-shot shot" data-full="assets/screens/walkthrough.jpg">
+          <img src="assets/screens/walkthrough.jpg" alt="A CodeDiver walkthrough: a numbered list of steps, the agent's explanation, highlighted code and a map of the path between steps." width="1420" height="802" />
+          <figcaption>An agent-led walkthrough: steps, narration, highlighted code and a map of the path.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============================================================ PROBLEM -->
+    <section class="problem">
+      <div class="wrap">
+        <h2 class="section-title center">AI made writing code cheap. Understanding it is still on you.</h2>
+        <div class="problem-grid">
+          <article>
+            <span class="num">01</span>
+            <h3>Agents out-type you</h3>
+            <p>Hundreds of lines land in minutes. Reading them line by line in a diff can't keep up — so you start skimming, then trusting, then guessing.</p>
+          </article>
+          <article>
+            <span class="num">02</span>
+            <h3>Diffs show lines, not meaning</h3>
+            <p>A diff tells you <em>what</em> changed. It doesn't tell you which functions are affected, who calls them, or how the request actually flows now.</p>
+          </article>
+          <article>
+            <span class="num">03</span>
+            <h3>You can't own what you don't understand</h3>
+            <p>When something breaks at 2am, it's your codebase. The mental model has to live in your head — not just in a chat transcript.</p>
+          </article>
+        </div>
+        <p class="bridge">CodeDiver gives your agent a screen to <strong>show its work</strong> — and gives you the tools to see the codebase for yourself.</p>
+      </div>
+    </section>
+
+    <!-- ============================================================ HOW -->
+    <section id="how" class="how">
+      <div class="wrap">
+        <p class="kicker">How it works</p>
+        <h2 class="section-title">Three steps to a codebase you still understand</h2>
+        <ol class="steps">
+          <li>
+            <span class="step-num">1</span>
+            <h3>Add your repository</h3>
+            <p>CodeDiver indexes it locally — call graphs, types, control flow, git history. Nothing leaves your machine.</p>
+          </li>
+          <li>
+            <span class="step-num">2</span>
+            <h3>Connect your agent</h3>
+            <p>One command adds CodeDiver as an MCP server. Your agent can now see the code the way you do — and show you things.</p>
+            <code class="inline-cmd">claude mcp add --transport http codediver http://127.0.0.1:47474/mcp</code>
+          </li>
+          <li>
+            <span class="step-num">3</span>
+            <h3>Ask, watch, decide</h3>
+            <p>Ask “walk me through this” or “fix that bug”. The agent opens views in front of you, explains as it goes, and proposes changes you accept or reject.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============================================================ MCP -->
+    <section id="mcp" class="mcp">
+      <div class="wrap">
+        <p class="kicker">Built-in MCP server</p>
+        <h2 class="section-title">Your agent, with a screen</h2>
+        <p class="section-lede">
+          Most agents can only answer in text. With CodeDiver connected, they can open the code you're
+          talking about, draw the graph that explains it, and narrate the logic block by block —
+          while you watch. Turn on <strong>Follow agent</strong> and every view it shows opens in front of you.
+        </p>
+
+        <div class="convo">
+          <div class="chat" aria-label="Example conversation with an agent">
+            <div class="msg you">
+              <span class="who">You</span>
+              <p>Explain the function I have open — what goes in, what comes out, and how it works.</p>
+            </div>
+            <div class="msg agent">
+              <span class="who">Claude Code</span>
+              <ul class="calls">
+                <li><code>get_developer_context</code><span>→ views.go · Service.Diff</span></li>
+                <li><code>get_function_flow</code><span>→ 16 blocks, 5 inputs, 2 outputs</span></li>
+                <li><code>explain_function</code><span>→ shown in CodeDiver</span></li>
+              </ul>
+              <p>I've opened the logic view for <code>Service.Diff</code>. Each step on the right is pinned to the block it describes — start at step 1.</p>
+            </div>
+            <div class="msg you">
+              <span class="who">You</span>
+              <p>What actually calls this?</p>
+            </div>
+            <div class="msg agent">
+              <span class="who">Claude Code</span>
+              <ul class="calls">
+                <li><code>trace_to</code><span>show: true</span></li>
+              </ul>
+              <p>Every path from the entry points is on your screen now.</p>
+            </div>
+          </div>
+          <figure class="shot" data-full="assets/screens/logic.jpg">
+            <img src="assets/screens/logic.jpg" alt="The logic view: inputs and outputs with the agent's descriptions, a control-flow graph with numbered steps pinned to blocks, and the agent's explanation." width="1420" height="802" loading="lazy" />
+            <figcaption>What you see: inputs → function → outputs, the control-flow graph, and the agent's narration pinned to each block.</figcaption>
+          </figure>
+        </div>
+
+        <h3 class="sub-title">25 tools, four jobs</h3>
+        <div class="tool-grid">
+          <div class="tool-group">
+            <h4>Understand context</h4>
+            <p>Know what you're looking at before answering.</p>
+            <ul>
+              <li><code>get_developer_context</code> the file, line, selection and function you have open</li>
+              <li><code>repo_overview</code> languages, entry points, hotspots</li>
+              <li><code>list_repos</code> · <code>list_files</code> · <code>read_file</code></li>
+              <li><code>get_file_summary</code> every function, type and variable in a file</li>
+              <li><code>search_code</code> · <code>search_symbols</code> · <code>get_symbol</code></li>
+            </ul>
+          </div>
+          <div class="tool-group">
+            <h4>Analyze</h4>
+            <p>Precise answers instead of guesses from grep.</p>
+            <ul>
+              <li><code>trace_to</code> every path that reaches a function</li>
+              <li><code>get_call_graph</code> callers and callees, interface dispatch resolved</li>
+              <li><code>get_function_flow</code> the control-flow graph of a function</li>
+              <li><code>get_dependencies</code> · <code>get_types</code></li>
+              <li><code>git_diff</code> · <code>git_log</code> · <code>git_status</code> · <code>get_heatmap</code></li>
+            </ul>
+          </div>
+          <div class="tool-group">
+            <h4>Teach</h4>
+            <p>Put understanding on your screen, not just in chat.</p>
+            <ul>
+              <li><code>start_walkthrough</code> a guided, step-by-step code tour</li>
+              <li><code>explain_function</code> inputs, outputs and logic, pinned to the graph</li>
+              <li><code>show_diagram</code> Mermaid or interactive diagrams linked to code</li>
+              <li><code>annotate_code</code> inline notes in the editor</li>
+              <li><code>show_code</code> open a file and highlight what matters</li>
+            </ul>
+          </div>
+          <div class="tool-group">
+            <h4>Change — with you in charge</h4>
+            <p>Agents propose. You decide.</p>
+            <ul>
+              <li><code>propose_changes</code> a reviewable change set; nothing is written until you accept</li>
+              <li><code>get_proposal</code> your decision and feedback, back to the agent</li>
+            </ul>
+            <p class="tool-note">Agents can't write files any other way.</p>
+          </div>
+        </div>
+
+        <div class="connect">
+          <div class="connect-copy">
+            <h3 class="sub-title">Connect in one line</h3>
+            <p>CodeDiver runs a local MCP server at <code>http://127.0.0.1:47474/mcp</code>. Stdio-only clients use the built-in bridge: <code>codediver mcp</code>.</p>
+            <div class="tabs" role="tablist" aria-label="Agent">
+              <button role="tab" aria-selected="true" data-tab="cc">Claude Code</button>
+              <button role="tab" aria-selected="false" data-tab="cursor">Cursor</button>
+              <button role="tab" aria-selected="false" data-tab="vscode">VS Code</button>
+              <button role="tab" aria-selected="false" data-tab="desktop">Claude Desktop</button>
+              <button role="tab" aria-selected="false" data-tab="codex">Codex</button>
+            </div>
+            <div class="snippet" data-panel="cc"><pre><code>claude mcp add --transport http codediver http://127.0.0.1:47474/mcp</code></pre><button class="copy" type="button">Copy</button></div>
+            <div class="snippet" data-panel="cursor" hidden><pre><code>// ~/.cursor/mcp.json
+{ "mcpServers": { "codediver": { "url": "http://127.0.0.1:47474/mcp" } } }</code></pre><button class="copy" type="button">Copy</button></div>
+            <div class="snippet" data-panel="vscode" hidden><pre><code>// .vscode/mcp.json
+{ "servers": { "codediver": { "type": "http", "url": "http://127.0.0.1:47474/mcp" } } }</code></pre><button class="copy" type="button">Copy</button></div>
+            <div class="snippet" data-panel="desktop" hidden><pre><code>// claude_desktop_config.json
+{ "mcpServers": { "codediver": { "command": "codediver", "args": ["mcp"] } } }</code></pre><button class="copy" type="button">Copy</button></div>
+            <div class="snippet" data-panel="codex" hidden><pre><code># ~/.codex/config.toml
+[mcp_servers.codediver]
+command = "codediver"
+args = ["mcp"]</code></pre><button class="copy" type="button">Copy</button></div>
+          </div>
+          <figure class="shot" data-full="assets/screens/agent-panel.jpg">
+            <img src="assets/screens/agent-panel.jpg" alt="The Agent panel listing a proposal, a walkthrough, an explained function, a diagram, inline notes and a live activity feed of every MCP tool call." width="1420" height="802" loading="lazy" />
+            <figcaption>Every tool call shows up in the live activity feed — you always know what the agent looked at.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ WALKTHROUGHS -->
+    <section id="walkthroughs" class="feature-band">
+      <div class="wrap">
+        <p class="kicker">Walkthroughs</p>
+        <h2 class="section-title">Onboarding in minutes, not weeks</h2>
+        <div class="split">
+          <div class="split-copy">
+            <p class="section-lede">Ask <em>“walk me through how a request reaches the database”</em> and your agent builds a guided tour you can step through at your own pace.</p>
+            <ul class="checks">
+              <li><strong>Every step is real code</strong> — opened, highlighted and explained in place, with code lenses showing callers and callees.</li>
+              <li><strong>A map of the path</strong> shows where you've been and where you're going.</li>
+              <li><strong>Keyboard-driven</strong> — arrow keys move between steps; jump into any function's logic or trace from there.</li>
+              <li><strong>Reusable</strong> — tours stay in the Agent panel for the session, so you can revisit them.</li>
+            </ul>
+            <p class="callout">The point isn't for the agent to know your codebase. It's for <em>you</em> to.</p>
+          </div>
+          <figure class="shot" data-full="assets/screens/walkthrough.jpg">
+            <img src="assets/screens/walkthrough.jpg" alt="Step 2 of 5 of a walkthrough titled 'How an agent's request reaches your screen', highlighting the AgentRepo function." width="1420" height="802" loading="lazy" />
+            <figcaption>Step 2 of 5: the agent explains why every call goes through the sandbox.</figcaption>
+          </figure>
+        </div>
+        <div class="split reverse">
+          <div class="split-copy">
+            <h3 class="sub-title">Diagrams that point back to code</h3>
+            <p>Agents can draw sequence, flow, class and state diagrams with Mermaid — or interactive graphs whose nodes open the code they describe. Architecture stops living only in someone's head.</p>
+          </div>
+          <figure class="shot" data-full="assets/screens/diagram.jpg">
+            <img src="assets/screens/diagram.jpg" alt="A sequence diagram drawn by the agent showing the path from a developer's prompt through the MCP server to the CodeDiver window." width="1420" height="802" loading="lazy" />
+            <figcaption>A sequence diagram the agent drew to explain its own workflow.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ REVIEW -->
+    <section id="review" class="feature-band alt">
+      <div class="wrap">
+        <p class="kicker">Proposals &amp; review</p>
+        <h2 class="section-title">Nothing touches your code until you say so</h2>
+        <div class="split">
+          <div class="split-copy">
+            <p class="section-lede">Agents submit changes as <strong>proposals</strong>. You get a visual review — not a wall of text in a chat.</p>
+            <ul class="checks">
+              <li><strong>Side-by-side diffs</strong> with the agent's rationale for every file.</li>
+              <li><strong>Blast radius</strong> — the functions it touches and everything that calls them.</li>
+              <li><strong>Accept or reject per file</strong>, with feedback that goes straight back to the agent.</li>
+              <li><strong>Conflict-safe</strong> — if the file changed since the proposal, CodeDiver refuses to overwrite it.</li>
+            </ul>
+          </div>
+          <figure class="shot" data-full="assets/screens/proposal.jpg">
+            <img src="assets/screens/proposal.jpg" alt="A proposal review: summary, per-file list, the agent's rationale and a side-by-side diff with Accept and Reject buttons." width="1420" height="802" loading="lazy" />
+            <figcaption>An agent's proposal, waiting for you.</figcaption>
+          </figure>
+        </div>
+        <div class="duo">
+          <figure class="shot" data-full="assets/screens/proposal-impact.jpg">
+            <img src="assets/screens/proposal-impact.jpg" alt="The blast radius of a proposal: the changed function and its callers up the chain." width="1420" height="802" loading="lazy" />
+            <figcaption>Blast radius: who is affected by the change.</figcaption>
+          </figure>
+          <figure class="shot" data-full="assets/screens/review.jpg">
+            <img src="assets/screens/review.jpg" alt="Reviewing working-tree changes: changed files with the functions they touch, a diff, and the blast radius graph." width="1420" height="802" loading="lazy" />
+            <figcaption>Your own changes get the same treatment — any branch, commit or the working tree.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ FEATURES -->
+    <section id="features" class="features">
+      <div class="wrap">
+        <p class="kicker">On your own, too</p>
+        <h2 class="section-title">A map of the code you can explore yourself</h2>
+        <p class="section-lede">Everything the agent can show you, you can open with a click.</p>
+        <div class="gallery">
+          <figure class="card shot" data-full="assets/screens/trace.jpg">
+            <img src="assets/screens/trace.jpg" alt="Trace to here: every caller path from entry points to a function." width="1420" height="802" loading="lazy" />
+            <figcaption><strong>Trace to here</strong> Click any function and see every path from the entry points — including handlers registered as callbacks.</figcaption>
+          </figure>
+          <figure class="card shot" data-full="assets/screens/code.jpg">
+            <img src="assets/screens/code.jpg" alt="The code view with code lenses, an agent message, an inline agent note and the file summary panel." width="1420" height="802" loading="lazy" />
+            <figcaption><strong>Code, annotated</strong> Code lenses show callers and calls; the file summary lists every function's inputs and outputs; agents leave notes inline.</figcaption>
+          </figure>
+          <figure class="card shot" data-full="assets/screens/heatmap.jpg">
+            <img src="assets/screens/heatmap.jpg" alt="A treemap heatmap of the repository by complexity, with per-function heat for the selected file." width="1420" height="802" loading="lazy" />
+            <figcaption><strong>Heatmaps</strong> Churn, complexity, your diff, pending proposals or where the agent has been looking — down to individual functions.</figcaption>
+          </figure>
+          <figure class="card shot" data-full="assets/screens/overview.jpg">
+            <img src="assets/screens/overview.jpg" alt="The repository overview: stats, languages, entry points and hotspots." width="1420" height="802" loading="lazy" />
+            <figcaption><strong>Overview</strong> Entry points, hotspots and structure the moment you open a repository.</figcaption>
+          </figure>
+        </div>
+        <ul class="mini-features">
+          <li><strong>Command palette</strong> jump to any symbol, file or view with <kbd>Ctrl</kbd>/<kbd>⌘</kbd> <kbd>K</kbd></li>
+          <li><strong>Call, dependency &amp; type graphs</strong> laid out automatically, interactive</li>
+          <li><strong>Git history</strong> per file, with diffs of every commit</li>
+          <li><strong>Ten themes</strong> from Deep Dive to Paper, light and dark</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================ SAFETY -->
+    <section class="safety">
+      <div class="wrap safety-grid">
+        <div>
+          <p class="kicker">Safety model</p>
+          <h2 class="section-title">You decide what the agent sees and changes</h2>
+        </div>
+        <ul class="safety-list">
+          <li><span>01</span><div><strong>Only the repos you add.</strong> Each one can be hidden from agents with a switch.</div></li>
+          <li><span>02</span><div><strong>A real sandbox.</strong> No <code>..</code> or symlink escapes; <code>.git</code>, <code>.env*</code>, keys and your own globs are invisible.</div></li>
+          <li><span>03</span><div><strong>No silent writes.</strong> The only way to change code is a proposal you accept.</div></li>
+          <li><span>04</span><div><strong>Local only.</strong> Bound to <code>127.0.0.1</code>, protected against DNS rebinding and cross-site requests. Your code never leaves your machine.</div></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================ LANGUAGES -->
+    <section class="languages">
+      <div class="wrap">
+        <h2 class="section-title center">Language support</h2>
+        <div class="lang-grid">
+          <div class="lang-card">
+            <span class="level precise">Precise</span>
+            <h3>Go</h3>
+            <p>Type-checked call graphs with interface dispatch, control-flow graphs, types, variables — no Go toolchain needed.</p>
+          </div>
+          <div class="lang-card">
+            <span class="level">Lexical</span>
+            <h3>15 languages</h3>
+            <p>TypeScript, JavaScript, Python, Rust, Java, Kotlin, C#, C, C++, Ruby, PHP, Swift, Scala, Dart, Lua — functions, classes, parameters, docs, call edges and imports.</p>
+          </div>
+          <div class="lang-card">
+            <span class="level">Everywhere</span>
+            <h3>~80 languages</h3>
+            <p>Syntax highlighting, search, git history and diffs, heatmaps, proposals, walkthroughs and agent explanations.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ INSTALL -->
+    <section id="install" class="install">
+      <div class="wrap">
+        <h2 class="section-title center">Get CodeDiver</h2>
+        <p class="section-lede center">Free and open source under the MIT license.</p>
+        <div class="install-grid">
+          <div class="install-card">
+            <h3>macOS &amp; Linux</h3>
+            <div class="snippet"><pre><code>curl -fsSL https://raw.githubusercontent.com/aitakemyjob/codediver/main/scripts/install.sh | sh</code></pre><button class="copy" type="button">Copy</button></div>
+            <p class="fine">Universal app for Apple Silicon &amp; Intel. Linux: <code>.deb</code>, <code>.rpm</code>, <code>.tar.gz</code> (x64, ARM64).</p>
+          </div>
+          <div class="install-card">
+            <h3>Windows</h3>
+            <div class="snippet"><pre><code>irm https://raw.githubusercontent.com/aitakemyjob/codediver/main/scripts/install.ps1 | iex</code></pre><button class="copy" type="button">Copy</button></div>
+            <p class="fine">Installer or portable <code>.exe</code>. Uses the WebView2 runtime built into Windows.</p>
+          </div>
+          <div class="install-card">
+            <h3>Server / headless</h3>
+            <div class="snippet"><pre><code>codediver serve</code></pre><button class="copy" type="button">Copy</button></div>
+            <p class="fine">The same UI in your browser — great for remote dev boxes. Binaries for every OS and architecture.</p>
+          </div>
+        </div>
+        <div class="cta center">
+          <a class="btn btn-primary" href="https://github.com/aitakemyjob/codediver/releases/latest">All downloads</a>
+          <a class="btn" href="https://github.com/aitakemyjob/codediver">Star on GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div class="brand">
+        <img src="assets/logo.png" alt="" width="28" height="28" />
+        <span>CodeDiver</span>
+      </div>
+      <nav aria-label="Footer">
+        <a href="https://github.com/aitakemyjob/codediver">GitHub</a>
+        <a href="https://github.com/aitakemyjob/codediver/blob/main/docs/MCP.md">MCP reference</a>
+        <a href="https://github.com/aitakemyjob/codediver/blob/main/docs/ARCHITECTURE.md">Architecture</a>
+        <a href="https://github.com/aitakemyjob/codediver/blob/main/CONTRIBUTING.md">Contributing</a>
+        <a href="https://github.com/aitakemyjob/codediver/discussions">Discussions</a>
+      </nav>
+      <p class="fine">MIT licensed. Screenshots show CodeDiver exploring its own source code.</p>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lightbox-close" type="button" aria-label="Close">×</button>
+    <img alt="" />
+    <p class="lightbox-caption"></p>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
