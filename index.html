@@ -7,7 +7,7 @@
   <meta name="description" content="CodeDiver is an open-source desktop app your AI coding agent can drive over MCP. It walks you through code, explains functions step by step, draws how code flows, and puts every proposed change in front of you to approve." />
   <meta name="theme-color" content="#f5f7fb" />
   <meta property="og:title" content="CodeDiver — stay part of your codebase while AI writes it" />
-  <meta property="og:description" content="Your coding agent, with a screen. Guided walkthroughs, function logic, call graphs, heatmaps and reviewable proposals — over MCP." />
+  <meta property="og:description" content="Your coding agent, with a screen. Guided walkthroughs, function logic, call graphs, test coverage, heatmaps and reviewable proposals — over MCP." />
   <meta property="og:image" content="assets/screens/walkthrough.jpg" />
   <meta property="og:type" content="website" />
   <link rel="icon" type="image/png" href="assets/favicon.png" />
@@ -26,11 +26,12 @@
         <span>CodeDiver</span>
       </a>
       <nav class="nav-links" id="primary-nav" aria-label="Primary">
-        <a href="#how">How it works</a>
         <a href="#mcp">MCP</a>
         <a href="#walkthroughs">Walkthroughs</a>
         <a href="#review">Review</a>
+        <a href="#qa">QA</a>
         <a href="#features">Features</a>
+        <a href="#releases">Releases</a>
         <a href="#install">Install</a>
       </nav>
       <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
@@ -48,6 +49,7 @@
     <section class="hero">
       <div class="wrap hero-grid">
         <div class="hero-copy">
+          <a class="release-pill" href="#qa"><span class="pill-tag">New</span> QA view: see what your tests cover</a>
           <p class="eyebrow">Open source · macOS · Windows · Linux</p>
           <h1>Stay part of your codebase <span class="accent">while AI writes it.</span></h1>
           <p class="lede">
@@ -60,6 +62,7 @@
             <a class="btn" href="#mcp">Connect your agent</a>
           </div>
           <p class="hero-note">Works with Claude Code, Cursor, VS Code, Claude Desktop, Codex — anything that speaks MCP.</p>
+          <p class="hero-note" id="hero-version"><a href="#releases">Latest release: v0.1.0</a></p>
         </div>
         <figure class="hero-shot shot" data-full="assets/screens/walkthrough.jpg">
           <img src="assets/screens/walkthrough.jpg" alt="A CodeDiver walkthrough: a numbered list of steps, the agent's explanation, highlighted code and a map of the path between steps." width="1420" height="802" />
@@ -163,7 +166,7 @@
           </figure>
         </div>
 
-        <h3 class="sub-title">25 tools, four jobs</h3>
+        <h3 class="sub-title">30 tools, five jobs</h3>
         <div class="tool-grid">
           <div class="tool-group">
             <h4>Understand context</h4>
@@ -206,6 +209,18 @@
               <li><code>get_proposal</code> your decision and feedback, back to the agent</li>
             </ul>
             <p class="tool-note">Agents can't write files any other way.</p>
+          </div>
+          <div class="tool-group">
+            <h4>Test</h4>
+            <p>Know what's covered before writing more.</p>
+            <ul>
+              <li><code>get_test_overview</code> coverage, tests and the riskiest gaps</li>
+              <li><code>get_coverage</code> uncovered lines per file and function</li>
+              <li><code>get_tests_for</code> which tests reach a function, and what they check</li>
+              <li><code>find_test_gaps</code> untested code ranked by risk, with what makes it hard to test</li>
+              <li><code>show_test_plan</code> behaviors to cover and refactors needed, on your screen</li>
+            </ul>
+            <p class="tool-note">Agents read results; they can't run commands.</p>
           </div>
         </div>
 
@@ -307,6 +322,50 @@ args = ["mcp"]</code></pre><button class="copy" type="button">Copy</button></div
       </div>
     </section>
 
+    <!-- ============================================================ QA -->
+    <section id="qa" class="feature-band">
+      <div class="wrap">
+        <p class="kicker">QA view <span class="new-tag">New in v0.1.1</span></p>
+        <h2 class="section-title">Know what your tests actually cover</h2>
+        <div class="split">
+          <div class="split-copy">
+            <p class="section-lede">Agents write tests fast. CodeDiver shows you whether they test what matters, and what's still exposed.</p>
+            <ul class="checks">
+              <li><strong>Real line coverage</strong> from your own tooling: Go, Vitest, Jest, pytest, Cargo, Maven, Gradle and .NET are detected, or import an LCOV, Cobertura, JaCoCo or Go report you already have.</li>
+              <li><strong>Gaps ranked by risk</strong>: uncovered code weighted by complexity and how many callers depend on it.</li>
+              <li><strong>Why it's hard to test</strong>: hard-wired clocks, network, filesystem, env vars, processes and sleeps, each with the refactor that fixes it.</li>
+              <li><strong>Tests that reach it</strong>, directly or through its callers, so you don't write the same test twice.</li>
+            </ul>
+          </div>
+          <figure class="shot" data-full="assets/screens/qa-gaps.jpg">
+            <img src="assets/screens/qa-gaps.jpg" alt="The QA view's Gaps tab: functions ranked by risk with coverage bars, and the selected function's uncovered lines, a filesystem testability hint and the tests that reach it." width="1420" height="802" loading="lazy" />
+            <figcaption>Gaps: the riskiest untested code, with uncovered lines and what makes it hard to test.</figcaption>
+          </figure>
+        </div>
+        <div class="duo">
+          <figure class="shot" data-full="assets/screens/qa-coverage.jpg">
+            <img src="assets/screens/qa-coverage.jpg" alt="The code editor with coverage markers: green bars on lines that ran, red on lines that never ran, amber on partially covered branches, and a '70% covered · 1 test' lens on the function." width="1420" height="802" loading="lazy" />
+            <figcaption>Coverage in the editor: green ran, red never ran, amber only some branches ran.</figcaption>
+          </figure>
+          <figure class="shot" data-full="assets/screens/qa-behaviors.jpg">
+            <img src="assets/screens/qa-behaviors.jpg" alt="The Behaviors tab: test files rendered as readable specs, with describe blocks, each behavior and chips naming the code it calls." width="1420" height="802" loading="lazy" />
+            <figcaption>Behaviors: every test as a readable spec, linked to the code it exercises.</figcaption>
+          </figure>
+        </div>
+        <div class="split reverse">
+          <div class="split-copy">
+            <h3 class="sub-title">Your agent plans the tests. You approve them.</h3>
+            <p>Ask <em>“what isn't tested here?”</em> and your agent reads coverage over MCP, then puts a test plan on your screen: the behaviors to cover as given / when / then, tied to the lines they exercise, plus any refactor the code needs first. When you agree, it proposes the tests as a change set you review.</p>
+            <p class="fine">Coverage runs happen only when you click Run. Agents read the results; they can't run commands.</p>
+          </div>
+          <figure class="shot" data-full="assets/screens/qa-plan.jpg">
+            <img src="assets/screens/qa-plan.jpg" alt="An agent's test plan for Repo.Diff: four behaviors with happy, edge and error badges in given/when/then form, and a refactor to build git arguments in a pure function." width="1420" height="802" loading="lazy" />
+            <figcaption>A test plan posted by the agent with <code>show_test_plan</code>.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
     <!-- ============================================================ FEATURES -->
     <section id="features" class="features">
       <div class="wrap">
@@ -324,7 +383,7 @@ args = ["mcp"]</code></pre><button class="copy" type="button">Copy</button></div
           </figure>
           <figure class="card shot" data-full="assets/screens/heatmap.jpg">
             <img src="assets/screens/heatmap.jpg" alt="A treemap heatmap of the repository by complexity, with per-function heat for the selected file." width="1420" height="802" loading="lazy" />
-            <figcaption><strong>Heatmaps</strong> Churn, complexity, your diff, pending proposals or where the agent has been looking — down to individual functions.</figcaption>
+            <figcaption><strong>Heatmaps</strong> Churn, complexity, uncovered lines, your diff, pending proposals or where the agent has been looking — down to individual functions.</figcaption>
           </figure>
           <figure class="card shot" data-full="assets/screens/overview.jpg">
             <img src="assets/screens/overview.jpg" alt="The repository overview: stats, languages, entry points and hotspots." width="1420" height="802" loading="lazy" />
@@ -351,7 +410,8 @@ args = ["mcp"]</code></pre><button class="copy" type="button">Copy</button></div
           <li><span>01</span><div><strong>Only the repos you add.</strong> Each one can be hidden from agents with a switch.</div></li>
           <li><span>02</span><div><strong>A real sandbox.</strong> No <code>..</code> or symlink escapes; <code>.git</code>, <code>.env*</code>, keys and your own globs are invisible.</div></li>
           <li><span>03</span><div><strong>No silent writes.</strong> The only way to change code is a proposal you accept.</div></li>
-          <li><span>04</span><div><strong>Local only.</strong> Bound to <code>127.0.0.1</code>, protected against DNS rebinding and cross-site requests. Your code never leaves your machine.</div></li>
+          <li><span>04</span><div><strong>No commands from agents.</strong> Test and coverage runs start only when you click Run; agents just read the results.</div></li>
+          <li><span>05</span><div><strong>Local only.</strong> Bound to <code>127.0.0.1</code>, protected against DNS rebinding and cross-site requests. Your code never leaves your machine.</div></li>
         </ul>
       </div>
     </section>
@@ -377,6 +437,37 @@ args = ["mcp"]</code></pre><button class="copy" type="button">Copy</button></div
             <p>Syntax highlighting, search, git history and diffs, heatmaps, proposals, walkthroughs and agent explanations.</p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ RELEASES -->
+    <section id="releases" class="releases">
+      <div class="wrap">
+        <p class="kicker">Releases</p>
+        <h2 class="section-title">What's new</h2>
+        <p class="section-lede">Every release is built and tested in CI on macOS, Windows and Linux, with checksums for every download.</p>
+        <div class="release-grid" id="release-grid">
+          <article class="release-card latest">
+            <div class="release-head">
+              <h3><a href="https://github.com/aitakemyjob/codediver/releases/tag/v0.1.0">v0.1.0</a></h3>
+              <span class="badge stable">Latest</span>
+              <span class="release-date">October 16, 2026</span>
+            </div>
+            <p class="release-sub">The first release.</p>
+            <ul class="release-notes">
+              <li>Desktop app with a built-in MCP server for Claude Code, Cursor, VS Code, Claude Desktop and Codex</li>
+              <li>Walkthroughs, function logic, trace-to-here, call graphs, heatmaps and visual review of agent proposals</li>
+              <li>Installers for macOS, Windows and Linux (x64 and ARM64), plus a headless server</li>
+            </ul>
+            <div class="release-downloads">
+              <a class="dl" href="https://github.com/aitakemyjob/codediver/releases/latest">All downloads</a>
+            </div>
+          </article>
+        </div>
+        <p class="fine release-more">
+          <a href="https://github.com/aitakemyjob/codediver/releases">All releases on GitHub</a> ·
+          <a href="https://github.com/aitakemyjob/codediver/releases.atom">RSS feed</a>
+        </p>
       </div>
     </section>
 

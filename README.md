@@ -19,6 +19,14 @@ python3 -m http.server 8000
 source, captured at 1420×802 with the Deep Dive theme while a simulated agent
 drove it over MCP (walkthroughs, explanations, proposals, diagrams).
 
+## Releases
+
+The **Releases** section and the hero's "Latest release" line are filled in
+at load time from the GitHub API (`/repos/aitakemyjob/codediver/releases`),
+cached for ten minutes per browser session. Each card shows GitHub's
+generated "What's Changed" list and direct download links. If the API is
+unreachable, the static v0.1.0 card in `index.html` stays in place.
+
 ## Style
 
 A light, flat theme built from the logo palette: navy text on soft
