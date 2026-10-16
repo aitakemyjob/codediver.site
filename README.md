@@ -21,5 +21,7 @@ drove it over MCP (walkthroughs, explanations, proposals, diagrams).
 
 ## Style
 
-Matches the app: flat surfaces, the Deep Dive palette (near-neutral navy with
-sky blue and code yellow as accents), no gradients or glows.
+A light, flat theme built from the logo palette: navy text on soft
+off-white, sky blue and code yellow as accents (darker variants where they're
+used as text, for contrast). Code snippets are dark panels, and the app
+screenshots use the app's dark Deep Dive theme. No gradients or glows.
