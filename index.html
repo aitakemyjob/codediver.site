@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CodeDiver — stay part of your codebase while AI writes it</title>
-  <meta name="description" content="CodeDiver is an open-source desktop app your AI coding agent can drive over MCP. It walks you through code, explains functions step by step, draws how code flows, and puts every proposed change in front of you to approve." />
+  <title>CodeDiver — build software with your AI agent, side by side</title>
+  <meta name="description" content="CodeDiver is an open-source workspace you share with your AI coding agent. It sees the code you have open, shows you what it means on screen — walkthroughs, call graphs, test gaps — and brings every change to you to decide. Works over MCP with Claude Code, Cursor, VS Code and Codex." />
   <meta name="theme-color" content="#f5f7fb" />
-  <meta property="og:title" content="CodeDiver — stay part of your codebase while AI writes it" />
-  <meta property="og:description" content="Your coding agent, with a screen. Guided walkthroughs, function logic, call graphs, test coverage, heatmaps and reviewable proposals — over MCP." />
+  <meta property="og:title" content="CodeDiver — build software with your AI agent, side by side" />
+  <meta property="og:description" content="Collaborative development with AI: a shared screen for you and your coding agent. It shows its work, you make the calls." />
   <meta property="og:image" content="assets/screens/walkthrough.jpg" />
   <meta property="og:type" content="website" />
   <link rel="icon" type="image/png" href="assets/favicon.png" />
@@ -26,11 +26,12 @@
         <span>CodeDiver</span>
       </a>
       <nav class="nav-links" id="primary-nav" aria-label="Primary">
-        <a href="#mcp">MCP</a>
-        <a href="#walkthroughs">Walkthroughs</a>
-        <a href="#review">Review</a>
-        <a href="#qa">QA</a>
-        <a href="#features">Features</a>
+        <a href="#together">How it works</a>
+        <a href="#demos">Demos</a>
+        <a href="#walkthroughs">Explain</a>
+        <a href="#review">Decide</a>
+        <a href="#qa">Test</a>
+        <a href="#mcp">Connect</a>
         <a href="#releases">Releases</a>
         <a href="#install">Install</a>
       </nav>
@@ -50,18 +51,18 @@
       <div class="wrap hero-grid">
         <div class="hero-copy">
           <a class="release-pill" href="#qa"><span class="pill-tag">New</span> QA view: see what your tests cover</a>
-          <p class="eyebrow">Open source · macOS · Windows · Linux</p>
-          <h1>Stay part of your codebase <span class="accent">while AI writes it.</span></h1>
+          <p class="eyebrow">Collaborative development with AI · Open source</p>
+          <h1>Build with your agent, <span class="accent">side by side.</span></h1>
           <p class="lede">
-            CodeDiver is a desktop app your coding agent can drive. It walks you through the code,
-            explains functions step by step, draws how execution flows, and puts every change it
-            wants to make in front of you to approve. <strong>The agent keeps the speed. You keep the understanding.</strong>
+            CodeDiver is a workspace you share with your coding agent. It sees the code you have open,
+            shows you what it means right on your screen — walkthroughs, call graphs, test gaps — and
+            brings every change to you to decide. <strong>Work at the agent's speed without losing the thread.</strong>
           </p>
           <div class="cta">
             <a class="btn btn-primary" id="download-btn" href="https://github.com/aitakemyjob/codediver/releases/latest">Download CodeDiver</a>
             <a class="btn" href="#mcp">Connect your agent</a>
           </div>
-          <p class="hero-note">Works with Claude Code, Cursor, VS Code, Claude Desktop, Codex — anything that speaks MCP.</p>
+          <p class="hero-note">Works with Claude Code, Cursor, VS Code, Claude Desktop, Codex — anything that speaks MCP. macOS, Windows and Linux.</p>
           <p class="hero-note" id="hero-version"><a href="#releases">Latest release: v0.1.0</a></p>
         </div>
         <figure class="hero-shot shot" data-full="assets/screens/walkthrough.jpg">
@@ -74,65 +75,58 @@
     <!-- ============================================================ PROBLEM -->
     <section class="problem">
       <div class="wrap">
-        <h2 class="section-title center">AI made writing code cheap. Understanding it is still on you.</h2>
+        <h2 class="section-title center">Coding agents are fast. Working with them is still a chat box.</h2>
         <div class="problem-grid">
           <article>
             <span class="num">01</span>
-            <h3>Agents out-type you</h3>
-            <p>Hundreds of lines land in minutes. Reading them line by line in a diff can't keep up — so you start skimming, then trusting, then guessing.</p>
+            <h3>You can't see what it sees</h3>
+            <p>The agent reads your whole codebase. You get a stream of text about it, and point at code by pasting it back in.</p>
           </article>
           <article>
             <span class="num">02</span>
-            <h3>Diffs show lines, not meaning</h3>
-            <p>A diff tells you <em>what</em> changed. It doesn't tell you which functions are affected, who calls them, or how the request actually flows now.</p>
+            <h3>Changes arrive, collaboration doesn't</h3>
+            <p>Hundreds of lines land as a diff to skim. You end up approving work instead of shaping it — skimming, then trusting, then guessing.</p>
           </article>
           <article>
             <span class="num">03</span>
-            <h3>You can't own what you don't understand</h3>
-            <p>When something breaks at 2am, it's your codebase. The mental model has to live in your head — not just in a chat transcript.</p>
+            <h3>The understanding stays in the transcript</h3>
+            <p>When something breaks at 2am, it's your codebase. The mental model has to live in your head, not in a chat history.</p>
           </article>
         </div>
-        <p class="bridge">CodeDiver gives your agent a screen to <strong>show its work</strong> — and gives you the tools to see the codebase for yourself.</p>
+        <p class="bridge">CodeDiver turns the chat into a <strong>shared screen</strong>: you both look at the same code, the agent shows its work, and you make the calls.</p>
       </div>
     </section>
 
-    <!-- ============================================================ HOW -->
-    <section id="how" class="how">
+    <!-- ============================================================ TOGETHER -->
+    <section id="together" class="together">
       <div class="wrap">
         <p class="kicker">How it works</p>
-        <h2 class="section-title">Three steps to a codebase you still understand</h2>
-        <ol class="steps">
+        <h2 class="section-title">One screen, two of you</h2>
+        <p class="section-lede">Your agent keeps working in your terminal or editor. CodeDiver is the screen you share: it shows the agent where you are, and shows you what the agent means.</p>
+        <ol class="loop">
           <li>
-            <span class="step-num">1</span>
-            <h3>Add your repository</h3>
-            <p>CodeDiver indexes it locally — call graphs, types, control flow, git history. Nothing leaves your machine.</p>
+            <span class="loop-num">1</span>
+            <h3>It sees what you see</h3>
+            <p>The agent knows the file, line, selection and function you have open. Ask about <em>“this function”</em> and it knows which one.</p>
           </li>
           <li>
-            <span class="step-num">2</span>
-            <h3>Connect your agent</h3>
-            <p>One command adds CodeDiver as an MCP server. Your agent can now see the code the way you do — and show you things.</p>
-            <code class="inline-cmd">claude mcp add --transport http --scope user codediver http://127.0.0.1:47474/mcp</code>
+            <span class="loop-num">2</span>
+            <h3>It shows instead of tells</h3>
+            <p>Animated demos, walkthroughs, function logic and call paths open on your screen, linked to the real code. <a href="#demos">Demos →</a></p>
           </li>
           <li>
-            <span class="step-num">3</span>
-            <h3>Ask, watch, decide</h3>
-            <p>Ask “walk me through this” or “fix that bug”. The agent opens views in front of you, explains as it goes, and proposes changes you accept or reject.</p>
+            <span class="loop-num">3</span>
+            <h3>It proposes. You decide.</h3>
+            <p>Changes arrive as visual proposals with their blast radius. Accept, reject or send feedback, file by file. <a href="#review">Decide →</a></p>
+          </li>
+          <li>
+            <span class="loop-num">4</span>
+            <h3>You check the work together</h3>
+            <p>See what the tests actually cover, where the risky gaps are, and agree on a test plan before it's written. <a href="#qa">Test →</a></p>
           </li>
         </ol>
-      </div>
-    </section>
 
-    <!-- ============================================================ MCP -->
-    <section id="mcp" class="mcp">
-      <div class="wrap">
-        <p class="kicker">Built-in MCP server</p>
-        <h2 class="section-title">Your agent, with a screen</h2>
-        <p class="section-lede">
-          Most agents can only answer in text. With CodeDiver connected, they can open the code you're
-          talking about, draw the graph that explains it, and narrate the logic block by block —
-          while you watch. Turn on <strong>Follow agent</strong> and every view it shows opens in front of you.
-        </p>
-
+        <h3 class="sub-title">What that looks like</h3>
         <div class="convo">
           <div class="chat" aria-label="Example conversation with an agent">
             <div class="msg you">
@@ -165,91 +159,37 @@
             <figcaption>What you see: inputs → function → outputs, the control-flow graph, and the agent's narration pinned to each block.</figcaption>
           </figure>
         </div>
+      </div>
+    </section>
 
-        <h3 class="sub-title">30 tools, five jobs</h3>
-        <div class="tool-grid">
-          <div class="tool-group">
-            <h4>Understand context</h4>
-            <p>Know what you're looking at before answering.</p>
-            <ul>
-              <li><code>get_developer_context</code> the file, line, selection and function you have open</li>
-              <li><code>repo_overview</code> languages, entry points, hotspots</li>
-              <li><code>list_repos</code> · <code>list_files</code> · <code>read_file</code></li>
-              <li><code>get_file_summary</code> every function, type and variable in a file</li>
-              <li><code>search_code</code> · <code>search_symbols</code> · <code>get_symbol</code></li>
+    <!-- ============================================================ DEMOS -->
+    <section id="demos" class="feature-band alt">
+      <div class="wrap">
+        <p class="kicker">Demos <span class="new-tag">Coming in the next release</span></p>
+        <h2 class="section-title">Ask for a demo, get one</h2>
+        <div class="split">
+          <div class="split-copy">
+            <p class="section-lede">Ask <em>“show me how a request moves through our CDN”</em> or <em>“animate how a sensor reading gets encoded”</em>, and your agent builds an animated, step-by-step demo on your screen.</p>
+            <ul class="checks">
+              <li><strong>Architecture that looks the part</strong> — regions, data centers and services nested inside each other, with icons, color-coded paths and labels that keep out of each other's way.</li>
+              <li><strong>Watch it move</strong> — packets travel the real routes, values change on each box, and the camera follows the action. Play, pause, step, or zoom and pan yourself.</li>
+              <li><strong>Tied to your code</strong> — click a box to open the function it stands for; each step can show the code behind it.</li>
+              <li><strong>Export and share</strong> — any step as PNG or SVG, the whole demo as a PDF with the narration. Agents can export images too, to check their own work.</li>
             </ul>
           </div>
-          <div class="tool-group">
-            <h4>Analyze</h4>
-            <p>Precise answers instead of guesses from grep.</p>
-            <ul>
-              <li><code>trace_to</code> every path that reaches a function</li>
-              <li><code>get_call_graph</code> callers and callees, interface dispatch resolved</li>
-              <li><code>get_function_flow</code> the control-flow graph of a function</li>
-              <li><code>get_dependencies</code> · <code>get_types</code></li>
-              <li><code>git_diff</code> · <code>git_log</code> · <code>git_status</code> · <code>get_heatmap</code></li>
-            </ul>
-          </div>
-          <div class="tool-group">
-            <h4>Teach</h4>
-            <p>Put understanding on your screen, not just in chat.</p>
-            <ul>
-              <li><code>start_walkthrough</code> a guided, step-by-step code tour</li>
-              <li><code>explain_function</code> inputs, outputs and logic, pinned to the graph</li>
-              <li><code>show_diagram</code> Mermaid or interactive diagrams linked to code</li>
-              <li><code>annotate_code</code> inline notes in the editor</li>
-              <li><code>show_code</code> open a file and highlight what matters</li>
-            </ul>
-          </div>
-          <div class="tool-group">
-            <h4>Change — with you in charge</h4>
-            <p>Agents propose. You decide.</p>
-            <ul>
-              <li><code>propose_changes</code> a reviewable change set; nothing is written until you accept</li>
-              <li><code>get_proposal</code> your decision and feedback, back to the agent</li>
-            </ul>
-            <p class="tool-note">Agents can't write files any other way.</p>
-          </div>
-          <div class="tool-group">
-            <h4>Test</h4>
-            <p>Know what's covered before writing more.</p>
-            <ul>
-              <li><code>get_test_overview</code> coverage, tests and the riskiest gaps</li>
-              <li><code>get_coverage</code> uncovered lines per file and function</li>
-              <li><code>get_tests_for</code> which tests reach a function, and what they check</li>
-              <li><code>find_test_gaps</code> untested code ranked by risk, with what makes it hard to test</li>
-              <li><code>show_test_plan</code> behaviors to cover and refactors needed, on your screen</li>
-            </ul>
-            <p class="tool-note">Agents read results; they can't run commands.</p>
-          </div>
+          <figure class="shot" data-full="assets/screens/demo.jpg">
+            <img src="assets/screens/demo.jpg" alt="A demo of a CDN reference architecture: clients, an Anycast edge network containing three data centers with DoS, DNS, CDN and cache tiles, cache MISS and HIT badges, and packets moving between tiers, with the step's narration on the right." width="1420" height="802" loading="lazy" />
+            <figcaption>Step 7 of 8: Client 2's cache miss is answered by the upper tier, and the origin is never contacted.</figcaption>
+          </figure>
         </div>
-
-        <div class="connect">
-          <div class="connect-copy">
-            <h3 class="sub-title">Connect in one line</h3>
-            <p>CodeDiver runs a local MCP server at <code>http://127.0.0.1:47474/mcp</code>. Stdio-only clients use the built-in bridge: <code>codediver mcp</code>.</p>
-            <div class="tabs" role="tablist" aria-label="Agent">
-              <button role="tab" aria-selected="true" data-tab="cc">Claude Code</button>
-              <button role="tab" aria-selected="false" data-tab="cursor">Cursor</button>
-              <button role="tab" aria-selected="false" data-tab="vscode">VS Code</button>
-              <button role="tab" aria-selected="false" data-tab="desktop">Claude Desktop</button>
-              <button role="tab" aria-selected="false" data-tab="codex">Codex</button>
-            </div>
-            <div class="snippet" data-panel="cc"><pre><code>claude mcp add --transport http --scope user codediver http://127.0.0.1:47474/mcp</code></pre><button class="copy" type="button">Copy</button></div>
-            <div class="snippet" data-panel="cursor" hidden><pre><code>// ~/.cursor/mcp.json
-{ "mcpServers": { "codediver": { "url": "http://127.0.0.1:47474/mcp" } } }</code></pre><button class="copy" type="button">Copy</button></div>
-            <div class="snippet" data-panel="vscode" hidden><pre><code>// .vscode/mcp.json
-{ "servers": { "codediver": { "type": "http", "url": "http://127.0.0.1:47474/mcp" } } }</code></pre><button class="copy" type="button">Copy</button></div>
-            <div class="snippet" data-panel="desktop" hidden><pre><code>// claude_desktop_config.json
-{ "mcpServers": { "codediver": { "command": "codediver", "args": ["mcp"] } } }</code></pre><button class="copy" type="button">Copy</button></div>
-            <div class="snippet" data-panel="codex" hidden><pre><code># ~/.codex/config.toml
-[mcp_servers.codediver]
-command = "codediver"
-args = ["mcp"]</code></pre><button class="copy" type="button">Copy</button></div>
-          </div>
-          <figure class="shot" data-full="assets/screens/agent-panel.jpg">
-            <img src="assets/screens/agent-panel.jpg" alt="The Agent panel listing a proposal, a walkthrough, an explained function, a diagram, inline notes and a live activity feed of every MCP tool call." width="1420" height="802" loading="lazy" />
-            <figcaption>Every tool call shows up in the live activity feed — you always know what the agent looked at.</figcaption>
+        <div class="duo">
+          <figure class="shot" data-full="assets/screens/animation.jpg">
+            <img src="assets/screens/animation.jpg" alt="A byte-by-byte animation of a freezer sensor reading: the bytes F8 CB swapped to CB F8 for little-endian on the wire, with a pipeline of stages from sensor chip to cloud JSON." width="1420" height="802" loading="lazy" />
+            <figcaption>Free-form animations for anything a diagram can't show — here, one sensor reading encoded byte by byte. They run sandboxed, with no network access.</figcaption>
+          </figure>
+          <figure class="shot" data-full="assets/screens/demo-export-light.png">
+            <img src="assets/screens/demo-export-light.png" alt="The same CDN step exported as a light-theme PNG, ready for a design doc." width="3074" height="1206" loading="lazy" />
+            <figcaption>The same step exported as a light PNG for a design doc, a README or a slide.</figcaption>
           </figure>
         </div>
       </div>
@@ -258,8 +198,8 @@ args = ["mcp"]</code></pre><button class="copy" type="button">Copy</button></div
     <!-- ============================================================ WALKTHROUGHS -->
     <section id="walkthroughs" class="feature-band">
       <div class="wrap">
-        <p class="kicker">Walkthroughs</p>
-        <h2 class="section-title">Onboarding in minutes, not weeks</h2>
+        <p class="kicker">Explain</p>
+        <h2 class="section-title">Understand any part of the code, together</h2>
         <div class="split">
           <div class="split-copy">
             <p class="section-lede">Ask <em>“walk me through how a request reaches the database”</em> and your agent builds a guided tour you can step through at your own pace.</p>
@@ -278,6 +218,17 @@ args = ["mcp"]</code></pre><button class="copy" type="button">Copy</button></div
         </div>
         <div class="split reverse">
           <div class="split-copy">
+            <h3 class="sub-title">Walk me through this change</h3>
+            <p>Before you accept a change, or after someone merges one, ask your agent to tour it. It visits each changed function in the order that makes sense: the cause, the fix, and the test that proves it, each highlighted in the real code with a map of where you are.</p>
+            <p class="callout">Review a change by understanding it, not by scrolling a diff.</p>
+          </div>
+          <figure class="shot" data-full="assets/screens/walkthrough-change.jpg">
+            <img src="assets/screens/walkthrough-change.jpg" alt="A walkthrough of a bug fix in five steps — the symptom, a cancellable base context, the new Shutdown logic, stopping test processes and the regression test — with step 3 highlighting the Shutdown function." width="1420" height="802" loading="lazy" />
+            <figcaption>A tour of a real fix in CodeDiver: step 3 of 5, the new shutdown logic.</figcaption>
+          </figure>
+        </div>
+        <div class="split reverse">
+          <div class="split-copy">
             <h3 class="sub-title">Diagrams that point back to code</h3>
             <p>Agents can draw sequence, flow, class and state diagrams with Mermaid — or interactive graphs whose nodes open the code they describe. Architecture stops living only in someone's head.</p>
           </div>
@@ -292,11 +243,11 @@ args = ["mcp"]</code></pre><button class="copy" type="button">Copy</button></div
     <!-- ============================================================ REVIEW -->
     <section id="review" class="feature-band alt">
       <div class="wrap">
-        <p class="kicker">Proposals &amp; review</p>
-        <h2 class="section-title">Nothing touches your code until you say so</h2>
+        <p class="kicker">Decide</p>
+        <h2 class="section-title">Shape the change before it lands</h2>
         <div class="split">
           <div class="split-copy">
-            <p class="section-lede">Agents submit changes as <strong>proposals</strong>. You get a visual review — not a wall of text in a chat.</p>
+            <p class="section-lede">Agents submit changes as <strong>proposals</strong>, and nothing touches your code until you accept. You review them visually, and your feedback goes straight back for the next round.</p>
             <ul class="checks">
               <li><strong>Side-by-side diffs</strong> with the agent's rationale for every file.</li>
               <li><strong>Blast radius</strong> — the functions it touches and everything that calls them.</li>
@@ -325,7 +276,7 @@ args = ["mcp"]</code></pre><button class="copy" type="button">Copy</button></div
     <!-- ============================================================ QA -->
     <section id="qa" class="feature-band">
       <div class="wrap">
-        <p class="kicker">QA view <span class="new-tag">New in v0.1.1</span></p>
+        <p class="kicker">Test <span class="new-tag">New in v0.1.1</span></p>
         <h2 class="section-title">Know what your tests actually cover</h2>
         <div class="split">
           <div class="split-copy">
@@ -396,6 +347,132 @@ args = ["mcp"]</code></pre><button class="copy" type="button">Copy</button></div
           <li><strong>Git history</strong> per file, with diffs of every commit</li>
           <li><strong>Ten themes</strong> from Deep Dive to Paper, light and dark</li>
         </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================ HOW -->
+    <section id="how" class="how">
+      <div class="wrap">
+        <p class="kicker">Get started</p>
+        <h2 class="section-title">Up and running in three steps</h2>
+        <ol class="steps">
+          <li>
+            <span class="step-num">1</span>
+            <h3>Add your repository</h3>
+            <p>CodeDiver indexes it locally — call graphs, types, control flow, git history. Nothing leaves your machine.</p>
+          </li>
+          <li>
+            <span class="step-num">2</span>
+            <h3>Connect your agent</h3>
+            <p>One command adds CodeDiver as an MCP server. Your agent can now see the code the way you do — and show you things.</p>
+            <code class="inline-cmd">claude mcp add --transport http --scope user codediver http://127.0.0.1:47474/mcp</code>
+          </li>
+          <li>
+            <span class="step-num">3</span>
+            <h3>Ask, watch, decide</h3>
+            <p>Ask “walk me through this” or “fix that bug”. The agent opens views in front of you, explains as it goes, and proposes changes you accept or reject.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============================================================ MCP -->
+    <section id="mcp" class="mcp">
+      <div class="wrap">
+        <p class="kicker">Connect</p>
+        <h2 class="section-title">Works with the agent you already use</h2>
+        <p class="section-lede">
+          CodeDiver runs a local MCP server with 30 tools for seeing, explaining, proposing and testing.
+          Add it to your agent with one line.
+        </p>
+
+        <div class="connect">
+          <div class="connect-copy">
+            <h3 class="sub-title">Connect in one line</h3>
+            <p>CodeDiver runs a local MCP server at <code>http://127.0.0.1:47474/mcp</code>. Stdio-only clients use the built-in bridge: <code>codediver mcp</code>.</p>
+            <div class="tabs" role="tablist" aria-label="Agent">
+              <button role="tab" aria-selected="true" data-tab="cc">Claude Code</button>
+              <button role="tab" aria-selected="false" data-tab="cursor">Cursor</button>
+              <button role="tab" aria-selected="false" data-tab="vscode">VS Code</button>
+              <button role="tab" aria-selected="false" data-tab="desktop">Claude Desktop</button>
+              <button role="tab" aria-selected="false" data-tab="codex">Codex</button>
+            </div>
+            <div class="snippet" data-panel="cc"><pre><code>claude mcp add --transport http --scope user codediver http://127.0.0.1:47474/mcp</code></pre><button class="copy" type="button">Copy</button></div>
+            <div class="snippet" data-panel="cursor" hidden><pre><code>// ~/.cursor/mcp.json
+{ "mcpServers": { "codediver": { "url": "http://127.0.0.1:47474/mcp" } } }</code></pre><button class="copy" type="button">Copy</button></div>
+            <div class="snippet" data-panel="vscode" hidden><pre><code>// .vscode/mcp.json
+{ "servers": { "codediver": { "type": "http", "url": "http://127.0.0.1:47474/mcp" } } }</code></pre><button class="copy" type="button">Copy</button></div>
+            <div class="snippet" data-panel="desktop" hidden><pre><code>// claude_desktop_config.json
+{ "mcpServers": { "codediver": { "command": "codediver", "args": ["mcp"] } } }</code></pre><button class="copy" type="button">Copy</button></div>
+            <div class="snippet" data-panel="codex" hidden><pre><code># ~/.codex/config.toml
+[mcp_servers.codediver]
+command = "codediver"
+args = ["mcp"]</code></pre><button class="copy" type="button">Copy</button></div>
+          </div>
+          <figure class="shot" data-full="assets/screens/agent-panel.jpg">
+            <img src="assets/screens/agent-panel.jpg" alt="The Agent panel listing a proposal, a walkthrough, an explained function, a diagram, inline notes and a live activity feed of every MCP tool call." width="1420" height="802" loading="lazy" />
+            <figcaption>Every tool call shows up in the live activity feed — you always know what the agent looked at.</figcaption>
+          </figure>
+        </div>
+        <details class="tool-details">
+          <summary>See all 30 tools</summary>
+        <div class="tool-grid">
+          <div class="tool-group">
+            <h4>Understand context</h4>
+            <p>Know what you're looking at before answering.</p>
+            <ul>
+              <li><code>get_developer_context</code> the file, line, selection and function you have open</li>
+              <li><code>repo_overview</code> languages, entry points, hotspots</li>
+              <li><code>list_repos</code> · <code>list_files</code> · <code>read_file</code></li>
+              <li><code>get_file_summary</code> every function, type and variable in a file</li>
+              <li><code>search_code</code> · <code>search_symbols</code> · <code>get_symbol</code></li>
+            </ul>
+          </div>
+          <div class="tool-group">
+            <h4>Analyze</h4>
+            <p>Precise answers instead of guesses from grep.</p>
+            <ul>
+              <li><code>trace_to</code> every path that reaches a function</li>
+              <li><code>get_call_graph</code> callers and callees, interface dispatch resolved</li>
+              <li><code>get_function_flow</code> the control-flow graph of a function</li>
+              <li><code>get_dependencies</code> · <code>get_types</code></li>
+              <li><code>git_diff</code> · <code>git_log</code> · <code>git_status</code> · <code>get_heatmap</code></li>
+            </ul>
+          </div>
+          <div class="tool-group">
+            <h4>Teach</h4>
+            <p>Put understanding on your screen, not just in chat.</p>
+            <ul>
+              <li><code>start_walkthrough</code> a guided, step-by-step code tour</li>
+              <li><code>explain_function</code> inputs, outputs and logic, pinned to the graph</li>
+              <li><code>show_diagram</code> Mermaid or interactive diagrams linked to code</li>
+              <li><code>annotate_code</code> inline notes in the editor</li>
+              <li><code>show_code</code> open a file and highlight what matters</li>
+            </ul>
+          </div>
+          <div class="tool-group">
+            <h4>Change — with you in charge</h4>
+            <p>Agents propose. You decide.</p>
+            <ul>
+              <li><code>propose_changes</code> a reviewable change set; nothing is written until you accept</li>
+              <li><code>get_proposal</code> your decision and feedback, back to the agent</li>
+            </ul>
+            <p class="tool-note">Agents can't write files any other way.</p>
+          </div>
+          <div class="tool-group">
+            <h4>Test</h4>
+            <p>Know what's covered before writing more.</p>
+            <ul>
+              <li><code>get_test_overview</code> coverage, tests and the riskiest gaps</li>
+              <li><code>get_coverage</code> uncovered lines per file and function</li>
+              <li><code>get_tests_for</code> which tests reach a function, and what they check</li>
+              <li><code>find_test_gaps</code> untested code ranked by risk, with what makes it hard to test</li>
+              <li><code>show_test_plan</code> behaviors to cover and refactors needed, on your screen</li>
+            </ul>
+            <p class="tool-note">Agents read results; they can't run commands.</p>
+          </div>
+        </div>
+        </details>
       </div>
     </section>
 
