@@ -121,6 +121,23 @@ section { padding: clamp(64px, 9vw, 96px) 0; }
 .bridge { text-align: center; color: var(--text-2); font-size: 20px; max-width: 720px; margin: 44px auto 0; }
 
 /* ---------------------------------------------------------------- how */
+/* How you work together: the four-part loop */
+.loop { list-style: none; padding: 0; margin: 36px 0 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+.loop li { border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; background: var(--bg-1); }
+.loop-num { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; font-size: 15px; background: var(--accent-soft); color: var(--accent-text); border: 1px solid rgba(11, 119, 181, 0.3); }
+.loop h3 { margin: 14px 0 8px; font-size: 19px; letter-spacing: -0.01em; }
+.loop p { margin: 0; color: var(--text-2); font-size: 15.5px; }
+.loop a { font-weight: 600; white-space: nowrap; }
+.together .sub-title { margin-top: 56px; }
+.together .convo { margin-top: 20px; }
+
+/* The full MCP tool list, folded away under Connect */
+.tool-details { margin-top: 40px; border-top: 1px solid var(--border); padding-top: 20px; }
+.tool-details summary { cursor: pointer; font-weight: 700; font-size: 17px; color: var(--accent-text); list-style: none; display: inline-flex; align-items: center; gap: 8px; }
+.tool-details summary::-webkit-details-marker { display: none; }
+.tool-details summary::before { content: '+'; display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 6px; border: 1px solid var(--border); font-weight: 700; }
+.tool-details[open] summary::before { content: '−'; }
+
 .steps { list-style: none; padding: 0; margin: 40px 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; counter-reset: step; }
 .steps li { border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; background: var(--bg-1); }
 .step-num { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; background: var(--accent); color: var(--accent-ink); }
@@ -280,6 +297,7 @@ section { padding: clamp(64px, 9vw, 96px) 0; }
   .chat { max-width: 720px; }
 }
 @media (max-width: 1023px) {
+  .loop { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .nav-links { display: none; }
   .menu-toggle { display: inline-flex; }
   .menu-toggle { order: 3; }
@@ -299,7 +317,7 @@ section { padding: clamp(64px, 9vw, 96px) 0; }
   .section-lede, .lede { max-width: 680px; }
 }
 @media (max-width: 860px) {
-  .problem-grid, .steps, .lang-grid, .install-grid, .release-grid.two { grid-template-columns: minmax(0, 1fr); }
+  .problem-grid, .steps, .loop, .lang-grid, .install-grid, .release-grid.two { grid-template-columns: minmax(0, 1fr); }
   .problem-grid, .steps, .lang-grid, .install-grid { max-width: 640px; }
   .problem .problem-grid, .languages .lang-grid, .install .install-grid { margin-left: auto; margin-right: auto; }
   .footer .fine { margin-left: 0; flex-basis: 100%; }
@@ -317,7 +335,7 @@ section { padding: clamp(64px, 9vw, 96px) 0; }
   .mcp > .wrap > .sub-title { margin-top: 56px; }
   .connect { margin-top: 56px; }
   .snippet pre { font-size: 12.5px; padding-right: 16px; padding-top: 44px; }
-  .problem-grid article, .steps li, .tool-group, .lang-card, .install-card { padding: 22px; }
+  .problem-grid article, .steps li, .loop li, .tool-group, .lang-card, .install-card { padding: 22px; }
   .safety-list li { padding: 16px; }
 }
 @media (max-width: 479px) {
