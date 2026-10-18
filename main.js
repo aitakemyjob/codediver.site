@@ -132,15 +132,39 @@ function formatSize(bytes) {
  * "* Title by @user in https://…/pull/6" → { title, url }.
  */
 function changesFrom(body = '') {
+  // Releases lead with the changelog ("## What's new in X"): show each
+  // top-level item's first sentence.
+  const highlights = body.split(/^## What's new.*$/m)[1]?.split(/^## /m)[0];
+  if (highlights) {
+    const items = [];
+    for (const line of highlights.split('\n')) {
+      if (/^- /.test(line)) items.push(line.slice(2));
+      else if (/^\s+\S/.test(line) && items.length) items[items.length - 1] += ' ' + line.trim();
+    }
+    if (items.length) return items.map((t) => ({ title: firstSentence(plain(t)) }));
+  }
+  // Otherwise GitHub's generated list of merged PRs, which may be grouped
+  // under "### Category" headings.
   const section = body.split(/^## What's Changed\s*$/m)[1];
   if (!section) return [];
   const out = [];
   for (const line of section.split('\n')) {
-    if (/^\s*(#|\*\*Full Changelog)/.test(line)) break;
-    const m = line.match(/^\s*[*-]\s+(.+?)(?:\s+by\s+@[\w-]+)?(?:\s+in\s+(https:\/\/\S+))?\s*$/);
+    if (/^\s*(## |\*\*Full Changelog)/.test(line)) break;
+    const m = line.match(/^\s*[*-]\s+(.+?)(?:\s+by\s+@[\w[\]-]+)?(?:\s+in\s+(https:\/\/\S+))?\s*$/);
     if (m) out.push({ title: m[1], url: m[2] });
   }
   return out;
+}
+
+/** Markdown inline formatting reduced to text. */
+function plain(md) {
+  return md.replace(/\[([^\]]+)\]\([^)]*\)/g, '$1').replace(/(\*\*|__|`)/g, '');
+}
+
+/** The first sentence of a changelog item, kept short. */
+function firstSentence(text) {
+  const s = text.match(/^.+?[.;](?=\s|$)/)?.[0] ?? text;
+  return s.length > 140 ? s.slice(0, 137).trimEnd() + '…' : s.replace(/;$/, '.');
 }
 
 /** The download links worth showing for a release, by platform. */
