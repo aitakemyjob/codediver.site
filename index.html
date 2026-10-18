@@ -111,7 +111,7 @@
             <span class="step-num">2</span>
             <h3>Connect your agent</h3>
             <p>One command adds CodeDiver as an MCP server. Your agent can now see the code the way you do — and show you things.</p>
-            <code class="inline-cmd">claude mcp add --transport http codediver http://127.0.0.1:47474/mcp</code>
+            <code class="inline-cmd">claude mcp add --transport http --scope user codediver http://127.0.0.1:47474/mcp</code>
           </li>
           <li>
             <span class="step-num">3</span>
@@ -235,7 +235,7 @@
               <button role="tab" aria-selected="false" data-tab="desktop">Claude Desktop</button>
               <button role="tab" aria-selected="false" data-tab="codex">Codex</button>
             </div>
-            <div class="snippet" data-panel="cc"><pre><code>claude mcp add --transport http codediver http://127.0.0.1:47474/mcp</code></pre><button class="copy" type="button">Copy</button></div>
+            <div class="snippet" data-panel="cc"><pre><code>claude mcp add --transport http --scope user codediver http://127.0.0.1:47474/mcp</code></pre><button class="copy" type="button">Copy</button></div>
             <div class="snippet" data-panel="cursor" hidden><pre><code>// ~/.cursor/mcp.json
 { "mcpServers": { "codediver": { "url": "http://127.0.0.1:47474/mcp" } } }</code></pre><button class="copy" type="button">Copy</button></div>
             <div class="snippet" data-panel="vscode" hidden><pre><code>// .vscode/mcp.json
