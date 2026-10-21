@@ -50,7 +50,7 @@
     <section class="hero">
       <div class="wrap hero-grid">
         <div class="hero-copy">
-          <a class="release-pill" href="#qa"><span class="pill-tag">New</span> QA view: see what your tests cover</a>
+          <a class="release-pill" href="#review"><span class="pill-tag">New in 0.2</span> See which tests cover every change</a>
           <p class="eyebrow">Collaborative development with AI · Open source</p>
           <h1>Build with your agent, <span class="accent">side by side.</span></h1>
           <p class="lede">
@@ -63,7 +63,7 @@
             <a class="btn" href="#mcp">Connect your agent</a>
           </div>
           <p class="hero-note">Works with Claude Code, Cursor, VS Code, Claude Desktop, Codex — anything that speaks MCP. macOS, Windows and Linux.</p>
-          <p class="hero-note" id="hero-version"><a href="#releases">Latest release: v0.1.0</a></p>
+          <p class="hero-note" id="hero-version"><a href="#releases">Latest release: v0.2.0</a></p>
         </div>
         <figure class="hero-shot shot" data-full="assets/screens/walkthrough.jpg">
           <img src="assets/screens/walkthrough.jpg" alt="A CodeDiver walkthrough: a numbered list of steps, the agent's explanation, highlighted code and a map of the path between steps." width="1420" height="802" />
@@ -165,7 +165,7 @@
     <!-- ============================================================ DEMOS -->
     <section id="demos" class="feature-band alt">
       <div class="wrap">
-        <p class="kicker">Demos <span class="new-tag">Coming in the next release</span></p>
+        <p class="kicker">Demos <span class="new-tag">New in v0.2.0</span></p>
         <h2 class="section-title">Ask for a demo, get one</h2>
         <div class="split">
           <div class="split-copy">
@@ -250,7 +250,8 @@
             <p class="section-lede">Agents submit changes as <strong>proposals</strong>, and nothing touches your code until you accept. You review them visually, and your feedback goes straight back for the next round.</p>
             <ul class="checks">
               <li><strong>Side-by-side diffs</strong> with the agent's rationale for every file.</li>
-              <li><strong>Blast radius</strong> — the functions it touches and everything that calls them.</li>
+              <li><strong>Blast radius, closest first</strong> — direct callers in full, callers further out grouped by package, and the entry points the change reaches. Each caller says whether a test runs its call into the change, so you know what to check before you accept.</li>
+              <li><strong>Tests for the change</strong> — which changed lines tests run and which they don't, marked in the diff. Click <em>Run these tests</em> (Go and pytest) to see which test runs which line.</li>
               <li><strong>Accept or reject per file</strong>, with feedback that goes straight back to the agent.</li>
               <li><strong>Conflict-safe</strong> — if the file changed since the proposal, CodeDiver refuses to overwrite it.</li>
             </ul>
@@ -262,12 +263,23 @@
         </div>
         <div class="duo">
           <figure class="shot" data-full="assets/screens/proposal-impact.jpg">
-            <img src="assets/screens/proposal-impact.jpg" alt="The blast radius of a proposal: the changed function and its callers up the chain." width="1420" height="802" loading="lazy" />
-            <figcaption>Blast radius: who is affected by the change.</figcaption>
+            <img src="assets/screens/proposal-impact.jpg" alt="A proposal's blast radius, closest first: one changed function, five direct callers each marked 'runs the path' with its coverage, and 25 callers further out grouped by package." width="1420" height="802" loading="lazy" />
+            <figcaption>Blast radius, closest first: every direct caller of the change, and whether a test runs its call into it.</figcaption>
           </figure>
           <figure class="shot" data-full="assets/screens/review.jpg">
-            <img src="assets/screens/review.jpg" alt="Reviewing working-tree changes: changed files with the functions they touch, a diff, and the blast radius graph." width="1420" height="802" loading="lazy" />
-            <figcaption>Your own changes get the same treatment — any branch, commit or the working tree.</figcaption>
+            <img src="assets/screens/review.jpg" alt="Reviewing a working-tree change: the diff of Validate, and a blast radius where the direct caller Handler.CreateOrder is flagged 'call not run' and the summary says 1 to review." width="1420" height="802" loading="lazy" />
+            <figcaption>Your own changes get the same treatment. Here the handler runs in tests, but never its call into <code>Validate</code>: flagged for review.</figcaption>
+          </figure>
+        </div>
+        <div class="split reverse">
+          <div class="split-copy">
+            <h3 class="sub-title">Which tests cover the change</h3>
+            <p>Next to every diff: how many changed lines tests run, which lines no test runs, and the tests that call or reach the changed code. Click <em>Run these tests</em> to measure which test runs which line, or ask your agent to write the missing ones.</p>
+            <p class="fine">Agents see the same report with <code>get_tests_for_change</code>, for a proposal, the working tree or any commit.</p>
+          </div>
+          <figure class="shot" data-full="assets/screens/qa-change-tests.jpg">
+            <img src="assets/screens/qa-change-tests.jpg" alt="The Tests pane under a diff: 0 of 1 changed lines covered by tests, the line no test runs, and the two tests that call or reach the changed function, with Run these tests and Ask agent for tests buttons." width="1420" height="802" loading="lazy" />
+            <figcaption>The changed line no test runs, and the two tests that reach the changed function.</figcaption>
           </figure>
         </div>
       </div>
@@ -276,17 +288,18 @@
     <!-- ============================================================ QA -->
     <section id="qa" class="feature-band">
       <div class="wrap">
-        <p class="kicker">Test <span class="new-tag">New in v0.1.1</span></p>
+        <p class="kicker">Test <span class="new-tag">Improved in v0.2.0</span></p>
         <h2 class="section-title">Know what your tests actually cover</h2>
         <div class="split">
           <div class="split-copy">
             <p class="section-lede">Agents write tests fast. CodeDiver shows you whether they test what matters, and what's still exposed.</p>
             <ul class="checks">
-              <li><strong>Real line coverage</strong> from your own tooling: Go, Vitest, Jest, pytest, Cargo, Maven, Gradle and .NET are detected, or import an LCOV, Cobertura, JaCoCo or Go report you already have.</li>
+              <li><strong>Real line coverage</strong> from your own tooling: Go, Vitest, Jest, pytest, RSpec, Cargo, Maven, Gradle and .NET are detected, or import an LCOV, Cobertura, JaCoCo or Go report you already have.</li>
               <li><strong>Gaps ranked by risk</strong>: uncovered code weighted by complexity and how many callers depend on it.</li>
               <li><strong>Why it's hard to test</strong>: hard-wired clocks, network, filesystem, env vars, processes and sleeps, each with the refactor that fixes it.</li>
               <li><strong>Tests that reach it</strong>, directly or through its callers, so you don't write the same test twice.</li>
             </ul>
+            <p class="fine">Reviewing a change? Its tests and their coverage open next to the diff. <a href="#review">See Decide →</a></p>
           </div>
           <figure class="shot" data-full="assets/screens/qa-gaps.jpg">
             <img src="assets/screens/qa-gaps.jpg" alt="The QA view's Gaps tab: functions ranked by risk with coverage bars, and the selected function's uncovered lines, a filesystem testability hint and the tests that reach it." width="1420" height="802" loading="lazy" />
@@ -382,7 +395,7 @@
         <p class="kicker">Connect</p>
         <h2 class="section-title">Works with the agent you already use</h2>
         <p class="section-lede">
-          CodeDiver runs a local MCP server with 30 tools for seeing, explaining, proposing and testing.
+          CodeDiver runs a local MCP server with 35 tools for seeing, explaining, proposing and testing.
           Add it to your agent with one line.
         </p>
 
@@ -415,7 +428,7 @@ args = ["mcp"]</code></pre><button class="copy" type="button">Copy</button></div
           </figure>
         </div>
         <details class="tool-details">
-          <summary>See all 30 tools</summary>
+          <summary>See all 35 tools</summary>
         <div class="tool-grid">
           <div class="tool-group">
             <h4>Understand context</h4>
@@ -437,6 +450,7 @@ args = ["mcp"]</code></pre><button class="copy" type="button">Copy</button></div
               <li><code>get_function_flow</code> the control-flow graph of a function</li>
               <li><code>get_dependencies</code> · <code>get_types</code></li>
               <li><code>git_diff</code> · <code>git_log</code> · <code>git_status</code> · <code>get_heatmap</code></li>
+              <li><code>get_language_support</code> how precise the analysis is for each language</li>
             </ul>
           </div>
           <div class="tool-group">
@@ -448,6 +462,7 @@ args = ["mcp"]</code></pre><button class="copy" type="button">Copy</button></div
               <li><code>show_diagram</code> Mermaid or interactive diagrams linked to code</li>
               <li><code>annotate_code</code> inline notes in the editor</li>
               <li><code>show_code</code> open a file and highlight what matters</li>
+              <li><code>show_demo</code> · <code>show_animation</code> · <code>export_demo</code> animated demos, and images of them</li>
             </ul>
           </div>
           <div class="tool-group">
@@ -466,6 +481,7 @@ args = ["mcp"]</code></pre><button class="copy" type="button">Copy</button></div
               <li><code>get_test_overview</code> coverage, tests and the riskiest gaps</li>
               <li><code>get_coverage</code> uncovered lines per file and function</li>
               <li><code>get_tests_for</code> which tests reach a function, and what they check</li>
+              <li><code>get_tests_for_change</code> which tests cover a proposal, the working tree or a commit</li>
               <li><code>find_test_gaps</code> untested code ranked by risk, with what makes it hard to test</li>
               <li><code>show_test_plan</code> behaviors to cover and refactors needed, on your screen</li>
             </ul>
@@ -514,6 +530,7 @@ args = ["mcp"]</code></pre><button class="copy" type="button">Copy</button></div
             <p>Syntax highlighting, search, git history and diffs, heatmaps, proposals, walkthroughs and agent explanations.</p>
           </div>
         </div>
+        <p class="fine center"><a href="https://github.com/aitakemyjob/codediver/blob/main/docs/LANGUAGES.md">What's precise, what's matched by name (~), and the known gaps for each language →</a></p>
       </div>
     </section>
 
@@ -526,15 +543,15 @@ args = ["mcp"]</code></pre><button class="copy" type="button">Copy</button></div
         <div class="release-grid" id="release-grid">
           <article class="release-card latest">
             <div class="release-head">
-              <h3><a href="https://github.com/aitakemyjob/codediver/releases/tag/v0.1.0">v0.1.0</a></h3>
+              <h3><a href="https://github.com/aitakemyjob/codediver/releases/tag/v0.2.0">v0.2.0</a></h3>
               <span class="badge stable">Latest</span>
-              <span class="release-date">October 16, 2026</span>
+              <span class="release-date">October 20, 2026</span>
             </div>
-            <p class="release-sub">The first release.</p>
+            <p class="release-sub">Demos, and tests for every change.</p>
             <ul class="release-notes">
-              <li>Desktop app with a built-in MCP server for Claude Code, Cursor, VS Code, Claude Desktop and Codex</li>
-              <li>Walkthroughs, function logic, trace-to-here, call graphs, heatmaps and visual review of agent proposals</li>
-              <li>Installers for macOS, Windows and Linux (x64 and ARM64), plus a headless server</li>
+              <li>Animated demos and free-form animations from your agent, exported as PNG, SVG or PDF</li>
+              <li>Tests for every change: the blast radius by distance with each caller's test status, and per-test coverage</li>
+              <li>Language support docs for agents and people, and sharper call graphs for TypeScript, Java, C#, Kotlin, Rust and Python</li>
             </ul>
             <div class="release-downloads">
               <a class="dl" href="https://github.com/aitakemyjob/codediver/releases/latest">All downloads</a>
@@ -587,11 +604,12 @@ args = ["mcp"]</code></pre><button class="copy" type="button">Copy</button></div
       <nav aria-label="Footer">
         <a href="https://github.com/aitakemyjob/codediver">GitHub</a>
         <a href="https://github.com/aitakemyjob/codediver/blob/main/docs/MCP.md">MCP reference</a>
+        <a href="https://github.com/aitakemyjob/codediver/blob/main/docs/LANGUAGES.md">Language support</a>
         <a href="https://github.com/aitakemyjob/codediver/blob/main/docs/ARCHITECTURE.md">Architecture</a>
         <a href="https://github.com/aitakemyjob/codediver/blob/main/CONTRIBUTING.md">Contributing</a>
         <a href="https://github.com/aitakemyjob/codediver/discussions">Discussions</a>
       </nav>
-      <p class="fine">MIT licensed. Screenshots show CodeDiver exploring its own source code.</p>
+      <p class="fine">MIT licensed. Screenshots show CodeDiver exploring its own source code and its example projects.</p>
     </div>
   </footer>
 
